@@ -1,0 +1,168 @@
+@use 'variables' as *;
+
+// ============================================
+// Global Styles — ГБПОО ЛАСК
+// ============================================
+
+// ---------- CSS Variables for theming ----------
+:root {
+  // Light theme (default)
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f8fa;
+  --bg-tertiary: #eef0f3;
+  --bg-card: #ffffff;
+  --bg-header: #ffffff;
+  --bg-hero-overlay: rgba(8, 18, 48, 0.65);
+
+  --text-primary: #111318;
+  --text-secondary: #525866;
+  --text-muted: #8993a4;
+  --text-inverse: #ffffff;
+
+  --accent: #1d4ed8;
+  --accent-hover: #1e3a8a;
+  --accent-light: #eff3fe;
+
+  --border-color: #dfe2e7;
+  --border-color-light: #eef0f3;
+
+  --shadow-card: #{$shadow-card};
+  --shadow-card-hover: #{$shadow-card-hover};
+  --shadow-header: #{$shadow-header};
+
+  --gradient-hero: linear-gradient(160deg, #0c1a3d 0%, #1d4ed8 100%);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0d0f14;
+  --bg-secondary: #151820;
+  --bg-tertiary: #1e222c;
+  --bg-card: #181b24;
+  --bg-header: #11131a;
+  --bg-hero-overlay: rgba(0, 0, 0, 0.65);
+
+  --text-primary: #e4e7ec;
+  --text-secondary: #949bab;
+  --text-muted: #5c6478;
+  --text-inverse: #0d0f14;
+
+  --accent: #4478e6;
+  --accent-hover: #5b8ef0;
+  --accent-light: #1a2744;
+
+  --border-color: #252a35;
+  --border-color-light: #1e222c;
+
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.25);
+  --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.35);
+  --shadow-header: 0 1px 0 rgba(0, 0, 0, 0.3);
+
+  --gradient-hero: linear-gradient(160deg, #080d1a 0%, #152040 100%);
+}
+
+// ---------- Reset ----------
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-primary;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+  transition: background-color $transition-base, color $transition-base;
+  min-height: 100dvh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color $transition-fast;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+// ---------- Container ----------
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $container-padding;
+}
+
+// ---------- Section ----------
+.section {
+  padding-block: 56px;
+
+  @media (max-width: $bp-tablet) {
+    padding-block: 36px;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+    position: relative;
+    padding-left: 16px;
+    letter-spacing: -0.01em;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      bottom: 2px;
+      width: 3px;
+      border-radius: 1px;
+      background: var(--accent);
+    }
+
+    @media (max-width: $bp-tablet) {
+      font-size: 1.25rem;
+      margin-bottom: 22px;
+    }
+  }
+}
+
+// ---------- Utility ----------
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

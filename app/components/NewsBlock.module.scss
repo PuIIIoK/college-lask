@@ -1,0 +1,125 @@
+@use '../styles/variables' as *;
+
+.news {
+  background: var(--bg-secondary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--accent);
+  transition: box-shadow $transition-fast, border-color $transition-fast;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+.cardImage {
+  width: 100%;
+  height: 160px;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 2rem;
+  overflow: hidden;
+
+  @media (max-width: $bp-mobile) {
+    height: 130px;
+  }
+}
+
+.cardBody {
+  padding: 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardDate {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.02em;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.cardExcerpt {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  transition: gap $transition-fast;
+
+  &:hover {
+    gap: 8px;
+  }
+}
+
+.more {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.moreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 28px;
+  border: 1.5px solid var(--accent);
+  border-radius: $radius-sm;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  transition: background-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    background: var(--accent);
+    color: var(--text-inverse);
+  }
+}

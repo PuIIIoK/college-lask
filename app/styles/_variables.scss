@@ -1,0 +1,31 @@
+// ============================================
+// ГБПОО ЛАСК — Design Tokens
+// ============================================
+
+// ---------- breakpoints ----------
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;
+
+// ---------- font ----------
+$font-primary: 'Inter', 'Segoe UI', Arial, sans-serif;
+$font-heading: 'Inter', 'Segoe UI', Arial, sans-serif;
+
+// ---------- radius ----------
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+
+// ---------- shadow ----------
+$shadow-card: 0 1px 4px rgba(0, 0, 0, 0.06);
+$shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.10);
+$shadow-header: 0 1px 0 rgba(0, 0, 0, 0.06);
+
+// ---------- transition ----------
+$transition-fast: 0.15s ease;
+$transition-base: 0.25s ease;
+
+// ---------- container ----------
+$container-max: 1260px;
+$container-padding: 20px;

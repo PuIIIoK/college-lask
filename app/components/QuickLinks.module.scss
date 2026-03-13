@@ -1,0 +1,117 @@
+@use '../styles/variables' as *;
+
+.quickLinks {
+  background: var(--bg-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  text-align: center;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+    background: transparent;
+    border-radius: 0 2px 2px 0;
+    transition: background $transition-fast;
+  }
+
+  &:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-card-hover);
+
+    &::before {
+      background: var(--accent);
+    }
+  }
+}
+
+.cardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-sm;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  transition: background-color $transition-fast, color $transition-fast;
+}
+
+.card:hover .cardIcon {
+  background: var(--accent);
+  color: #fff;
+}
+
+.cardTitle {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+.cardDesc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* special schedule card */
+.schedule {
+  border-color: #b45309;
+
+  &::before {
+    background: #b45309;
+  }
+
+  .cardIcon {
+    background: rgba(180, 83, 9, 0.08);
+    color: #b45309;
+  }
+
+  &:hover {
+    border-color: #92400e;
+
+    &::before {
+      background: #92400e;
+    }
+
+    .cardIcon {
+      background: #b45309;
+      color: #fff;
+    }
+  }
+}

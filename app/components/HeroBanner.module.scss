@@ -1,0 +1,126 @@
+@use '../styles/variables' as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-hero);
+
+  @media (max-width: $bp-tablet) {
+    height: 300px;
+  }
+
+  @media (max-width: $bp-mobile) {
+    height: 240px;
+  }
+}
+
+.slideBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+}
+
+.slideContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 0 24px;
+  max-width: 760px;
+}
+
+.slideTitle {
+  font-family: $font-heading;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: $bp-tablet) {
+    font-size: 1.45rem;
+  }
+
+  @media (max-width: $bp-mobile) {
+    font-size: 1.15rem;
+  }
+}
+
+.slideDesc {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+
+  @media (max-width: $bp-tablet) {
+    font-size: 0.88rem;
+  }
+}
+
+.slideBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px 26px;
+  border-radius: $radius-sm;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  transition: background-color $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: 9px 20px;
+    font-size: 0.82rem;
+  }
+}
+
+/* Swiper overrides */
+.hero :global(.swiper-pagination-bullet) {
+  background: #fff;
+  opacity: 0.4;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  transition: opacity $transition-fast, width $transition-fast;
+}
+
+.hero :global(.swiper-pagination-bullet-active) {
+  opacity: 1;
+  width: 24px;
+  border-radius: 2px;
+}
+
+.hero :global(.swiper-button-next),
+.hero :global(.swiper-button-prev) {
+  color: #fff;
+  opacity: 0.7;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: $bp-tablet) {
+    display: none;
+  }
+}
